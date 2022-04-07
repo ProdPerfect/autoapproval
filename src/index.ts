@@ -136,7 +136,7 @@ async function getAutoapprovalReviews (context: Context): Promise<any> {
   const pr = context.pullRequest()
   const reviews = await context.octokit.pulls.listReviews(pr)
 
-  const autoapprovalReviews = (reviews.data).filter((item: any) => item.user.login === 'autoapproval[bot]')
+  const autoapprovalReviews = (reviews.data).filter((item: any) => item.user.login === 'pr-shepherd[bot]')
 
   return autoapprovalReviews
 }
